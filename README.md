@@ -17,15 +17,15 @@ On the published page, confirm progress moves from 0% to 33%, 67%, and 100%; unc
 The original reusable task is in [prompts/first-site.md](prompts/first-site.md). Agent guidance starts at [AGENTS.md](AGENTS.md).
 
 
-## Level 2: Cloudflare Pages API
+## Level 2: Cloudflare Worker API
 
-**Check cloud** calls same-origin `GET /api/hello`. The Pages Function in `functions/api/hello.js` returns `ok`, `message`, and `serverTime` (UTC ISO 8601), with caching disabled. The button shows loading, then the actual response and UTC server time, or an unavailable message. GitHub Pages and local HTML remain static; all existing interactions still work.
+**Check cloud** calls same-origin `GET /api/hello`. `worker.js` returns `ok`, `message`, and `serverTime` (UTC ISO 8601), with caching disabled. The button shows loading, then the actual response and UTC time, or an unavailable message. GitHub Pages/local HTML stay static; all existing interactions still work.
 
-In Cloudflare Dashboard, create a **Pages** application with **Git integration** for this repository: production branch `main`, framework **None**, build command `exit 0`, output directory `.`. The owner handles Git authorization and confirms settings. The existing `workers.dev` site is a Workers deployment; uploading static assets there does not execute this Pages Function. No account settings or deployments are changed by this PR.
+The existing Worker is `codex-cloud-hello-site`, at https://codex-cloud-hello-site.amitkarpe.workers.dev (reported working by the owner). No deployment config was previously committed. The minimal `wrangler.jsonc` targets that same Worker with `worker.js` as its entry point and the existing root frontend as an `ASSETS` binding. `/api/*` runs through the Worker first; other paths retain static asset handling. `.assetsignore` limits Worker asset uploads to `index.html`, `style.css`, and `script.js`. No Pages project or new dependency is needed.
 
-Use the actual Pages PR preview URL shown by Cloudflare/GitHub to review before merging. If Git integration is not yet configured, configure Pages in the dashboard first. After owner-approved merge, check the actual production URL from the dashboard. No Cloudflare API deployment has been verified by this implementation.
+Keep the existing Cloudflare Workers Git integration for this repository and Worker. After review and owner-approved merge/deployment, the existing Wrangler deploy command should read the root configuration. Confirm its working directory is the repository root and it does not override the entry point or asset directory. This PR does not change dashboard settings, merge, or deploy. The new live API has not been observed.
 
-Two manual browser checks:
+Two manual browser checks after owner-approved deployment:
 
-1. **Frontend:** Open the actual Cloudflare Pages preview/production URL and GitHub Pages URL. Confirm greeting, checklist, and light/dark toggle still work (also on mobile). On GitHub Pages, **Check cloud** should show the helpful unavailable message.
-2. **Backend:** On the actual Cloudflare Pages URL, click **Check cloud**: loading should be followed by **LIVE**, `Hello from Cloudflare Edge`, and UTC server time. Open `/api/hello` on that same origin to confirm JSON with `ok: true` and a current `serverTime`; click again to see fresh time. An unavailable message is not a backend pass.
+1. **Frontend:** Open the Worker URL and GitHub Pages URL. Confirm greeting, checklist, and light/dark toggle still work (also on mobile). GitHub Pages **Check cloud** should show the helpful unavailable message.
+2. **Backend:** On the Worker URL, click **Check cloud**: loading should be followed by **LIVE**, `Hello from Cloudflare Edge`, and UTC server time. Open https://codex-cloud-hello-site.amitkarpe.workers.dev/api/hello directly to confirm JSON with `ok: true` and a current `serverTime`; click again to see fresh time. An unavailable message is not a backend pass.

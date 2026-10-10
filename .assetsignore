@@ -1,0 +1,5 @@
+# Upload only the three public frontend files from the repository root.
+**
+!index.html
+!style.css
+!script.js

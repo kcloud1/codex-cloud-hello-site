@@ -79,7 +79,7 @@ cloudButton.addEventListener('click', async () => {
     cloudResult.textContent = `LIVE — ${data.message} · UTC server time: ${data.serverTime}`;
   } catch {
     cloudResult.dataset.state = 'unavailable';
-    cloudResult.textContent = 'Cloud API unavailable. This feature needs Cloudflare Pages Functions; GitHub Pages and local HTML previews are static. You can keep exploring the site or try again.';
+    cloudResult.textContent = 'Cloud API unavailable. This feature needs the Cloudflare Worker API; GitHub Pages and local HTML previews are static. You can keep exploring the site or try again.';
   } finally {
     clearTimeout(timeout);
     cloudButton.disabled = false;
