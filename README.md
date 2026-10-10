@@ -23,7 +23,7 @@ The original reusable task is in [prompts/first-site.md](prompts/first-site.md).
 
 The existing Worker is `codex-cloud-hello-site`, at https://codex-cloud-hello-site.amitkarpe.workers.dev (reported working by the owner). No deployment config was previously committed. The minimal `wrangler.jsonc` targets that same Worker with `worker.js` as its entry point and the existing root frontend as an `ASSETS` binding. `/api/*` runs through the Worker first; other paths retain static asset handling. `.assetsignore` limits Worker asset uploads to `index.html`, `style.css`, and `script.js`. No Pages project or new dependency is needed.
 
-Keep the existing Cloudflare Workers Git integration for this repository and Worker. After review and owner-approved merge/deployment, the existing Wrangler deploy command should read the root configuration. Confirm its working directory is the repository root and it does not override the entry point or asset directory. This PR does not change dashboard settings, merge, or deploy. The new live API has not been observed.
+Keep the existing Cloudflare Workers Git integration for this repository and Worker. After review and owner-approved merge/deployment, the existing Wrangler deploy command should read the root configuration. Confirm its working directory is the repository root and it does not override the entry point or asset directory. The owner merged PR #3; the merged revision’s Cloudflare build and GitHub Pages deployment checks passed. Owner-provided GUI evidence shows a live response. See [the Level 2 review summary](docs/level2-review-summary.md) for revision, evidence, review status, and remaining manual acceptance.
 
 Two manual browser checks after owner-approved deployment:
 
