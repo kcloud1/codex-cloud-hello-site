@@ -4,7 +4,7 @@ A small interactive learning hub built entirely through Codex Cloud with plain H
 
 ## Use
 
-Open `index.html` in a browser. Check and uncheck the three checklist items to update progress, then click **Say hello** to change the greeting. Progress resets when the page is reloaded. No install or build is needed.
+Open `index.html` in a browser. Check and uncheck the three checklist items to update progress, then click **Say hello** to change the greeting. Use **Dark mode / Light mode** in the header to switch themes. The initial theme follows your device preference; your selection is remembered when browser storage is available. Checklist progress resets when the page is reloaded. No install or build is needed.
 
 ## Publish with GitHub Pages
 

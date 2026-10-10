@@ -15,3 +15,6 @@ The repository contains starter guidance but no website. Repository identity was
 
 ## Execution sequence
 Initialize concise contracts → implement three static files → browser smoke check → open one PR. Rollback is reverting the site commit; keep the reusable prompt and review evidence.
+
+## Accepted follow-up
+The user explicitly requests a dark mode toggle in the same PR and merge into main. This supersedes the original no-merge boundary for PR #1; hosting settings remain unchanged.

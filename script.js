@@ -28,3 +28,27 @@ document.querySelector('#greeting-button').addEventListener('click', () => {
   greetingIndex = (greetingIndex + 1) % greetings.length;
   document.querySelector('#greeting').textContent = greetings[greetingIndex];
 });
+
+
+const themeToggle = document.querySelector('#theme-toggle');
+function applyTheme(isDark) {
+  document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+  themeToggle.setAttribute('aria-pressed', String(isDark));
+  themeToggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+}
+let savedTheme = null;
+try {
+  savedTheme = localStorage.getItem('cloud-lab-theme');
+} catch {
+  // The toggle still works when browser storage is unavailable.
+}
+applyTheme(savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.dataset.theme !== 'dark';
+  applyTheme(isDark);
+  try {
+    localStorage.setItem('cloud-lab-theme', isDark ? 'dark' : 'light');
+  } catch {
+    // Storage is optional; the current page retains the selected theme.
+  }
+});
