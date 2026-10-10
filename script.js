@@ -52,3 +52,36 @@ themeToggle.addEventListener('click', () => {
     // Storage is optional; the current page retains the selected theme.
   }
 });
+
+
+const cloudButton = document.querySelector('#cloud-button');
+const cloudResult = document.querySelector('#cloud-result');
+cloudButton.addEventListener('click', async () => {
+  cloudButton.disabled = true;
+  cloudResult.dataset.state = 'loading';
+  cloudResult.textContent = 'Checking cloud…';
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch('/api/hello', {
+      cache: 'no-store',
+      signal: controller.signal
+    });
+    if (!response.ok) throw new Error('API unavailable');
+    const data = await response.json();
+    if (data?.ok !== true || typeof data.message !== 'string' ||
+        typeof data.serverTime !== 'string' ||
+        !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(data.serverTime) ||
+        !Number.isFinite(Date.parse(data.serverTime))) {
+      throw new Error('Unexpected API response');
+    }
+    cloudResult.dataset.state = 'live';
+    cloudResult.textContent = `LIVE — ${data.message} · UTC server time: ${data.serverTime}`;
+  } catch {
+    cloudResult.dataset.state = 'unavailable';
+    cloudResult.textContent = 'Cloud API unavailable. This feature needs Cloudflare Pages Functions; GitHub Pages and local HTML previews are static. You can keep exploring the site or try again.';
+  } finally {
+    clearTimeout(timeout);
+    cloudButton.disabled = false;
+  }
+});
