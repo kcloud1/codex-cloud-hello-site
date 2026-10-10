@@ -4,8 +4,7 @@ Status: INITIALIZED
 
 - Project: My First Codex Cloud Website
 - Primary Repository: kcloud1/codex-cloud-hello-site
-- Current truth: greeting, checklist, and dark mode are merged. Owner reports the existing codex-cloud-hello-site.amitkarpe.workers.dev deployment works.
-- Active work: [issue #2](https://github.com/kcloud1/codex-cloud-hello-site/issues/2), adapted by explicit user instruction to the existing Worker, in [PR #3](https://github.com/kcloud1/codex-cloud-hello-site/pull/3).
-- Accepted change: use a Worker fetch handler and existing Worker name instead of Pages Functions; no Pages project. The current user GO instruction is the acceptance evidence.
-- Next action: owner reviews PR #3 and performs the README browser checks after owner-approved deployment.
-- Boundary: no automatic merge, deployment, or Cloudflare account changes. Live API verification remains pending.
+- Current truth: PR #3 is merged at 9b637d9. The existing Worker now contains GET /api/hello and Check cloud feedback. Merged-revision Cloudflare and GitHub Pages checks succeeded; owner-provided screenshot shows LIVE and UTC server time.
+- Active acceptance: [issue #2](https://github.com/kcloud1/codex-cloud-hello-site/issues/2), adapted to Workers by explicit owner instruction.
+- Next action: G reviews [the evidence summary](docs/level2-review-summary.md); owner confirms direct JSON/fresh time and post-deployment frontend/static-host checks before closing issue #2.
+- Boundary: this handoff authorizes documentation and GitHub record updates, not further merge, deployment, or account changes.
