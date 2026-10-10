@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Your first Codex Cloud project: turn an idea into a working website, one simple step at a time.">
+  <title>My First Codex Cloud Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="Cloud Lab home"><span class="brand-mark" aria-hidden="true">✳</span> Cloud Lab</a>
+    <a class="nav-link" href="#journey">Your first project <span aria-hidden="true">→</span></a>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="welcome-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> SMALL IDEA. REAL WEBSITE.</p>
+        <h1 id="welcome-title">My First<br>Codex Cloud<br><span>Website.</span></h1>
+        <p class="intro">From “I have an idea” to “I made this.”<br>Your first step into building with AI.</p>
+        <p class="description">Welcome! Codex Cloud works on your GitHub repository in a cloud workspace. Describe what you want, let Codex write the code, then review the changes. You can build right from your browser.</p>
+        <a class="primary-button" href="#journey">Explore the three steps <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="demo-card">
+        <div class="card-top"><span class="window-dots" aria-hidden="true">● ● ●</span><span>idea → working software</span></div>
+        <div class="demo-body">
+          <span class="cloud-symbol" aria-hidden="true">☁</span>
+          <p class="eyebrow">YOUR IDEA, BROUGHT TO LIFE</p>
+          <h2>Hello, possibility.</h2>
+          <p>This is a real website. Go ahead—give it a little nudge.</p>
+          <div class="greeting-box"><span class="dot"></span><p id="greeting" role="status">Hello! Your cloud adventure starts here.</p></div>
+          <button id="greeting-button" class="small-button" type="button">Say hello <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="card-bottom"><span class="dot"></span> Built in the cloud. Ready to explore.</div>
+      </div>
+    </section>
+    <section id="journey" class="journey" aria-labelledby="journey-title">
+      <div class="section-heading"><div><p class="eyebrow">THE PATH FROM IDEA TO LIVE</p><h2 id="journey-title">Three steps. One first project.</h2></div><span class="section-note">You bring the idea. Codex helps build it.</span></div>
+      <ol class="steps">
+        <li><span class="step-number">01</span><h3>Create GitHub Repo</h3><p>Give your project a home. Create a GitHub repository to keep the code and its history together.</p><span class="step-tag">A home for your idea</span></li>
+        <li><span class="step-number">02</span><h3>Start Codex Cloud</h3><p>Connect your repository and describe your goal. Codex works in the cloud to turn your instructions into code.</p><span class="step-tag">Build with natural language</span></li>
+        <li><span class="step-number">03</span><h3>Review and Publish</h3><p>Review the pull request, try the page, and merge when you’re happy. GitHub Pages can then publish your website.</p><span class="step-tag">Your work, out in the world</span></li>
+      </ol>
+    </section>
+    <section class="checklist-panel" aria-labelledby="checklist-title">
+      <div class="checklist-intro"><p class="eyebrow">MAKE IT YOURS</p><h2 id="checklist-title">Your launch checklist</h2><p>Track your journey, one small win at a time.</p><div class="progress-heading"><span id="progress-label" role="status">0 of 3 complete</span><strong id="progress-percent">0%</strong></div><progress id="progress" max="3" value="0" aria-label="Launch checklist completion">0 of 3 complete</progress><p id="progress-message">Every great project starts with a first step.</p></div>
+      <fieldset><legend class="sr-only">Mark the steps you have completed</legend>
+        <label class="check-item"><input type="checkbox"><span><strong>I created my GitHub repository</strong><small>My idea has a place to grow.</small></span></label>
+        <label class="check-item"><input type="checkbox"><span><strong>I started a task in Codex Cloud</strong><small>I described what I want to build.</small></span></label>
+        <label class="check-item"><input type="checkbox"><span><strong>I reviewed and published my website</strong><small>My first project is ready to share.</small></span></label>
+      </fieldset>
+      <noscript><p>Enable JavaScript to use the greeting button and checklist progress.</p></noscript>
+    </section>
+  </main>
+  <footer class="wrap"><span>Cloud Lab <span aria-hidden="true">/</span> First project, endless possibilities.</span><span>Made with curiosity &amp; Codex.</span></footer>
+</body>
+</html>
